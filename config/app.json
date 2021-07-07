@@ -1,0 +1,17 @@
+{
+  "app_name": "simple_gin",
+  "app_mode": "debug",
+  "app_host": "0.0.0.0",
+  "app_port": "9091",
+
+  "database": {
+    "driver": "mysql",
+    "user": "root",
+    "pwd": "123456",
+    "host": "127.0.0.1",
+    "port": "3306",
+    "db_name": "bubble",
+    "charset": "utf8",
+    "show_sql": true
+  }
+}
