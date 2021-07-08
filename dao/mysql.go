@@ -9,13 +9,8 @@ var (
 	DB *gorm.DB
 )
 
-func InitMysql()(err error)  {
-	// 获取配置
-	cfg, err := tool.ParseConfig("bubble/config/app.json")
-	if err != nil {
-		return err
-		//panic(err.Error())
-	}
+func InitMysql(cfg *tool.Config)(err error)  {
+
 	// 链接数据库
 	database := cfg.Database
 	conn := database.User + ":" + database.Pwd + "@tcp(" + database.Host + ":" + database.Port + ")/" + database.DbName + "?charset=" + database.Charset

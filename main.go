@@ -12,14 +12,16 @@ import (
 func main() {
 	//dir,_ := os.Getwd()
 	//fmt.Println("当前路径：",dir)
-	if err:=dao.InitMysql();err!=nil{
-		panic(err.Error()) // 执行出错，程序退出
-	}
 	// 获取配置
 	cfg, err := tool.ParseConfig("bubble/config/app.json")
 	if err != nil {
 		panic(err.Error())
 	}
+
+	if err:=dao.InitMysql(cfg);err!=nil{
+		panic(err.Error()) // 执行出错，程序退出
+	}
+
 	defer dao.Close() // 延时关闭数据库
 	// 模型绑定
 	dao.DB.AutoMigrate(&models.Todo{})
